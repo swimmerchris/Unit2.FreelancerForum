@@ -47,7 +47,6 @@ function render() {
         row.appendChild(frOccupation);
         row.appendChild(frPrice);
 
-        console.log(row);
         return row;
     })
     table.replaceChildren(...tableElmements);
@@ -74,7 +73,7 @@ function averagePrice() {
         sum += currentNum;
     }
     const mean = Math.round(sum / displayFreelancer.length);
-    const averageParagraph = document.getElementById("average")
+    const averageParagraph = document.querySelector("#average");
     const average = document.createElement('p');
     average.textContent = `The average starting price is $${mean}`;
     averageParagraph.replaceChildren(average);
