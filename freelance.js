@@ -7,17 +7,28 @@ const freelancers = [
     { name: "Prof. Spark", price: 76, occupation: "programmer" },
     { name: "Dr. Wire", price: 47, occupation: "teacher" },
     { name: "Prof. Goose", price: 72, occupation: "driver" },
+    { name: "James Bond", price: 120, occupation: "MI-6" },
+    { name: "John Daily", price: 72, occupation: "Golfer" },
+    { name: "Gandolth the Grey", price: 120, occupation: "Wizard" },
+    { name: "Frodo Baggins", price: 55, occupation: "Adventurer" },
+    { name: "Harry Potter", price: 59, occupation: "Wizard" },
+    { name: "Merry Poppins", price: 65, occupation: "Nanny" },
+    { name: "John Smith", price: 47, occupation: "Designer" },
+    { name: "Prof. Dumblore", price: 77, occupation: "Wizard/Professor" },
+    { name: "Prof. Snape", price: 47, occupation: "Wizard/Potions Professor" },
+    { name: "Sam Wise Gamgee", price: 88, occupation: "Hero" },
+    { name: "Merry Brandybuck", price: 74, occupation: "Professional Pipe Smoker" },
 ];
 
 const displayFreelancer = [
-    { name: "Prof. Prism", price: 81, occupation: "teacher" },
-    { name: "Dr. Impulse", price: 43, occupation: "teacher" },
+    { name: "Prof. Possum", price: 81, occupation: "teacher" },
+    { name: "Dr. Doolittle", price: 47, occupation: "teacher" },
 ];
 
 const maxFreelancers = freelancers.length;
-const addShapeIntervalId = setInterval(addFreelancer, 1000);
+const addShapeIntervalId = setInterval(addFreelancer, 3000);
 
-// render();
+render();
 
 function render() {
     // Render the squares
@@ -30,7 +41,7 @@ function render() {
 
         frName.innerText = freelancer.name;
         frOccupation.innerText = freelancer.occupation;
-        frPrice.innerText = freelancer.price;
+        frPrice.innerText = '$' + freelancer.price;
 
         row.appendChild(frName);
         row.appendChild(frOccupation);
@@ -40,6 +51,7 @@ function render() {
         return row;
     })
     table.replaceChildren(...tableElmements);
+    averagePrice();
 }
 
 function addFreelancer() {
@@ -48,7 +60,7 @@ function addFreelancer() {
         displayFreelancer.push(nextFreelance);
     }
     render();
-    averagePrice();
+
     if (displayFreelancer.length >= maxFreelancers) {
         clearInterval(addShapeIntervalId)
     }
@@ -67,11 +79,3 @@ function averagePrice() {
     average.textContent = `The average starting price is $${mean}`;
     averageParagraph.replaceChildren(average);
 }
-
-// const priceTest = averagePrice();
-
-// const averageParagraph = document.getElementById("average")
-// const average = document.createElement('p');
-// average.textContent = `The average starting price is $${priceTest}`
-// averageParagraph.replaceWith(average);
-
